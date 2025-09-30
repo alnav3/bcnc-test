@@ -21,15 +21,41 @@ The application uses H2 in-memory database with Liquibase for schema management.
 
 ## Database Schema
 
-The `PRICES` table contains:
+The database now includes three main entities with proper relationships:
+
+### BRAND Table
+- Brand information with name, description, and creation timestamp
+- One-to-many relationship with prices
+
+### PRODUCT Table  
+- Product catalog with unique codes, names, descriptions, categories
+- One-to-many relationship with prices
+
+### PRICES Table
 - Product pricing information with date ranges
-- Brand associations (1 = ZARA)
+- Foreign key relationships to both BRAND and PRODUCT tables
 - Priority-based price selection
 - Sample data for testing scenarios
 
+All tables are properly normalized with foreign key constraints and include audit fields for tracking creation timestamps.
+
+## JPA Entities
+
+The infrastructure layer includes JPA entities with Lombok annotations for reduced boilerplate:
+- `BrandEntity` - Brand management with lazy-loaded price relationships
+- `ProductEntity` - Product catalog with unique code constraints  
+- `PriceEntity` - Pricing data with proper foreign key mappings
+
+## Repository Layer
+
+Spring Data JPA repositories are implemented for each entity:
+- `JpaBrandRepository` - Includes custom finder by brand name
+- `JpaProductRepository` - Basic CRUD operations
+- `JpaPriceRepository` - Basic CRUD operations
+
 ## Development
 
-This project uses Liquibase for database migrations located in `src/main/resources/db/changelog/`. All schema changes should be versioned through migration files.
+This project uses Liquibase for database migrations located in `src/main/resources/db/changelog/`. All schema changes should be versioned through migration files. The current migration sequence creates the pricing table first, then adds the normalized brand and product tables with foreign key relationships.
 
 ## WIP
 
