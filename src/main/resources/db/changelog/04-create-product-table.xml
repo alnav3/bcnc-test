@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.23.xsd">
+
+    <changeSet id="004" author="bcnc">
+        <createTable tableName="PRODUCT">
+            <column name="ID" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="CODE" type="VARCHAR(50)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="NAME" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="VARCHAR(1000)"/>
+            <column name="CATEGORY" type="VARCHAR(100)"/>
+            <column name="CREATED_AT" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <insert tableName="PRODUCT">
+            <column name="ID" value="35455"/>
+            <column name="CODE" value="35455"/>
+            <column name="NAME" value="Basic T-Shirt"/>
+            <column name="DESCRIPTION" value="Cotton basic t-shirt available in multiple colors"/>
+            <column name="CATEGORY" value="Clothing"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
