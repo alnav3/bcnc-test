@@ -25,11 +25,11 @@ public interface PriceEntityMapper {
 
     Brand brandToDomain(BrandEntity brandEntity);
 
+    @Mapping(target = "prices", ignore = true)
     BrandEntity brandToEntity(Brand brand);
 
-    @Mapping(source = "name", target = "name")
     Product productToDomain(ProductEntity productEntity);
 
-    @Mapping(source = "name", target = "name")
+    @Mapping(target = "prices", ignore = true)
     ProductEntity productToEntity(Product product);
 }
