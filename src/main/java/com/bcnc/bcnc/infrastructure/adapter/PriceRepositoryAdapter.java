@@ -2,7 +2,6 @@ package com.bcnc.bcnc.infrastructure.adapter;
 
 import com.bcnc.bcnc.domain.model.Price;
 import com.bcnc.bcnc.domain.port.PriceRepository;
-import com.bcnc.bcnc.infrastructure.entity.PriceEntity;
 import com.bcnc.bcnc.infrastructure.mapper.PriceEntityMapper;
 import com.bcnc.bcnc.infrastructure.repository.JpaPriceRepository;
 import lombok.RequiredArgsConstructor;
