@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.23.xsd">
+
+    <changeSet id="006" author="bcnc">
+        <createIndex indexName="IDX_PRICES_QUERY" tableName="PRICES">
+            <column name="PRODUCT_ID"/>
+            <column name="BRAND_ID"/>
+            <column name="START_DATE"/>
+            <column name="END_DATE"/>
+        </createIndex>
+        
+        <createIndex indexName="IDX_PRICES_PRIORITY" tableName="PRICES">
+            <column name="PRIORITY" descending="true"/>
+        </createIndex>
+    </changeSet>
+
+</databaseChangeLog>
