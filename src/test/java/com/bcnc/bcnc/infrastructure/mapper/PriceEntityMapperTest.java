@@ -37,7 +37,9 @@ class PriceEntityMapperTest {
         priceEntity = new PriceEntity();
         priceEntity.setId(1L);
         priceEntity.setBrand(brandEntity);
+        priceEntity.setBrandId(1L);
         priceEntity.setProduct(productEntity);
+        priceEntity.setProductId(35455L);
         priceEntity.setPriceList(1L);
         priceEntity.setStartDate(LocalDateTime.of(2020, 6, 14, 0, 0));
         priceEntity.setEndDate(LocalDateTime.of(2020, 12, 31, 23, 59, 59));
@@ -84,7 +86,9 @@ class PriceEntityMapperTest {
     @Test
     void toDomain_shouldHandleNullBrandAndProduct() {
         priceEntity.setBrand(null);
+        priceEntity.setBrandId(null);
         priceEntity.setProduct(null);
+        priceEntity.setProductId(null);
 
         Price domainPrice = mapper.toDomain(priceEntity);
 
